@@ -13,3 +13,27 @@ const formatValue = (
 const getLength = (input: string | any[]): number => {
   return input.length;
 };
+
+class Person {
+  constructor(public name: string, public age: number) {}
+
+  getDetails(): string {
+    return `Name: ${this.name}, Age: ${this.age}`;
+  }
+}
+
+interface Item {
+  title: string;
+  rating: number;
+}
+
+const filterByRating = (items: Item[]): Item[] => {
+  return items.filter((item) => item.rating >= 4);
+};
+const books = [
+  { title: "Book A", rating: 4.5 },
+  { title: "Book B", rating: 3.2 },
+  { title: "Book C", rating: 5.0 },
+];
+
+console.log(filterByRating(books));
