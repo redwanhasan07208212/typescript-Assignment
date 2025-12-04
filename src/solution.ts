@@ -9,3 +9,7 @@ const formatValue = (
     return !value;
   }
 };
+
+const getLength = (input: string | any[]): number => {
+  return input.length;
+};
