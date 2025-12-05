@@ -54,3 +54,13 @@ const printBookDetails = (book: Book): string => {
     book.publishedYear
   }, Available: ${book.isAvailable ? "Yes" : "No"}`;
 };
+
+const getUniqueValues = (
+  array1: (string | number)[],
+  array2: (string | number)[]
+): (string | number)[] => {
+  return [...new Set([array1, array2].flat())];
+};
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+console.log(getUniqueValues(array1, array2)); // [1, 2, 3, 4, 5, 6, 7]
