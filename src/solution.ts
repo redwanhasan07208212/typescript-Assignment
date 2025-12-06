@@ -61,6 +61,19 @@ const getUniqueValues = (
 ): (string | number)[] => {
   return [...new Set([array1, array2].flat())];
 };
-const array1 = [1, 2, 3, 4, 5];
-const array2 = [3, 4, 5, 6, 7];
-console.log(getUniqueValues(array1, array2)); // [1, 2, 3, 4, 5, 6, 7]
+
+interface Product {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
+const calculateTotalPrice = (products: Product[]): number => {
+  return products.reduce((total, product) => {
+    const productTotal = product.price * product.quantity;
+    const discountAmount = product.discount
+      ? (productTotal * product.discount) / 100
+      : 0;
+    return total + (productTotal - discountAmount);
+  }, 0);
+};
